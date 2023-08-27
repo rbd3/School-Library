@@ -3,39 +3,19 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
-   end
-   
-   def id()
-    @id
-   end
+  end
 
-   def name()
-    @name    
-    end
+  attr_accessor :id, :name, :age
 
-    def age()
-     @age
-    end
+  private
 
-    def id=(id)
-      @id = id
-    end
+  def of_age?
+    @age >= 18
+  end
 
-    def name=(name)
-      @name = name
-    end
+  public
 
-    def age=(age)
-      @age = age
-    end
-    
-    private
-    def of_age?
-      @age >= 18
-    end
-
-    public
-    def can_use_services?
-      @age >= 18 || @parent_permission == true
-    end
+  def can_use_services?
+    @age >= 18 || @parent_permission == true
+  end
 end
