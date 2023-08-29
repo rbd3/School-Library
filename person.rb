@@ -44,4 +44,4 @@ capitalized_person = CapitalizeDecorator.new(person)
 puts capitalized_person.correct_name
 
 capitalize_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalize_trimmed_person.correct_name
+#puts capitalize_trimmed_person.correct_name
