@@ -3,8 +3,9 @@ require_relative 'base_decorator'
 require_relative 'capitalize_decorator'
 require_relative 'trimmer_decorator'
 
-class Person
+class Person < Nameable
   def initialize(age, parent_permission: true, name: 'Unknown')
+    super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
