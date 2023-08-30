@@ -35,6 +35,7 @@ class Person < Nameable
   def add_rental(rental)
     @rentals << rental
     rental.person = self
+  end
 end
 
 person = Person.new(22, name: 'maximilianus')
@@ -44,4 +45,4 @@ capitalized_person = CapitalizeDecorator.new(person)
 puts capitalized_person.correct_name
 
 capitalize_trimmed_person = TrimmerDecorator.new(capitalized_person)
-#puts capitalize_trimmed_person.correct_name
+puts capitalize_trimmed_person.correct_name
