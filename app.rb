@@ -14,21 +14,21 @@ class App
 
   def list_books
     if @books.empty?
-        puts 'No books available'
-      else 
-        @books.each { |book| puts "#{book.title} by #{book.author}" }
-      end
+      puts 'No books available'
+    else
+      @books.each { |book| puts "#{book.title} by #{book.author}" }
+    end
   end
 
   def list_people
     if @peoples.empty?
-        puts 'No people available'
-      else
-        @peoples.each { |person| puts person.name }
-      end
+      puts 'No people available'
+    else
+      @peoples.each { |person| puts person.name }
+    end
   end
 
-   def create_student(age, has_parent_permission, name)
+  def create_student(age, has_parent_permission, name)
     student = Student.new(age, parent_permission: has_parent_permission, name: name)
     @peoples << student
   end
