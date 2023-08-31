@@ -24,7 +24,7 @@ class App
     if @peoples.empty?
       puts 'No people available'
     else
-      @peoples.each { |person| puts person.name }
+      @peoples.each { |person| puts "ID: #{person.id} , Name: #{person.name}, Age: #{person.age}" }
     end
   end
 

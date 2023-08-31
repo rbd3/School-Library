@@ -14,8 +14,12 @@ class Main
       puts 'Enter person name:'
       name = gets.chomp
       puts 'Has parent permission? [Yes/No]'
-      has_parent_permission = gets.chomp.downcase
-      app.create_student(age, has_parent_permission, name)
+      has_parent_permission = gets.chomp
+      if %w[Y y].include?(has_parent_permission)
+        app.create_student(age, name, parent_permission: true)
+      elsif %w[N n].include?(has_parent_permission)
+        app.create_student(age, name, parent_permission: false)
+      end
     elsif type == 2
       puts 'Enter person age:'
       age = gets.chomp.to_i
