@@ -15,7 +15,7 @@ class Main
       name = gets.chomp
       puts 'Has parent permission? [Yes/No]'
       has_parent_permission = gets.chomp
-      app.create_student(age, name, has_parent_permission)
+      app.create_student(age, has_parent_permission, name)
 
     elsif type == 2
       puts 'Enter person age:'
