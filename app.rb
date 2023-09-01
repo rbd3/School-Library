@@ -16,15 +16,19 @@ class App
     if @books.empty?
       puts 'No books available'
     else
-      @books.each { |book| puts "#{book.title} by #{book.author}" }
+      @books.each_with_index do |book, i|
+        puts "Number: #{i + 1}, Title: #{book.title}, Author: #{book.author}"
+      end
     end
   end
 
   def list_people
     if @peoples.empty?
-      puts 'No people available'
+      puts 'There are no people'
     else
-      @peoples.each { |person| puts "ID: #{person.id} , Name: #{person.name}, Age: #{person.age}" }
+      @peoples.each_with_index do |person, i|
+        puts "Number: #{i + 1}, Name: #{person.name}, age: #{person.age}, ID: #{person.id}"
+      end
     end
   end
 
@@ -43,18 +47,24 @@ class App
     @books << book
   end
 
-  def create_rental(date, book, person)
-    rental = Rental.new(date, book, person)
+  def create_rental(date, selected_books, selected_persons)
+    rental = Rental.new(date, selected_books, selected_persons)
     @rentals << rental
   end
 
   def list_rentals(person_id)
-    person = @peoples.find { |p| p.object_id == person_id }
+    person = @peoples.find { |p| p.id == person_id }
     if person.nil?
-      puts 'Person not found'
+      puts "Person with ID #{person_id} not found."
     else
-      rentals = @rentals.select { |r| r.person.object_id == person_id }
-      rentals.each { |rental| puts "#{rental.book.title} by #{rental.book.author}" }
+      puts "Name: #{person.name}"
+      if person.rentals.empty?
+        puts 'Has no rentals'
+      else
+        person.rentals.each do |rental|
+          puts "Date: #{rental.date}, Book: #{rental.books.title} by #{rental.books.author}"
+        end
+      end
     end
   end
 end

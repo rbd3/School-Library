@@ -15,11 +15,8 @@ class Main
       name = gets.chomp
       puts 'Has parent permission? [Yes/No]'
       has_parent_permission = gets.chomp
-      if %w[Y y].include?(has_parent_permission)
-        app.create_student(age, name, parent_permission: true)
-      elsif %w[N n].include?(has_parent_permission)
-        app.create_student(age, name, parent_permission: false)
-      end
+      app.create_student(age, name, has_parent_permission)
+
     elsif type == 2
       puts 'Enter person age:'
       age = gets.chomp.to_i
@@ -50,7 +47,7 @@ class Main
     app.list_people
     puts 'Enter person number:'
     person = gets.chomp.to_i
-    app.create_rental(date, app.books[book - 1], app.people[person - 1])
+    app.create_rental(date, app.books[book - 1], app.peoples[person - 1])
   end
 
   def list_rentals(app)
