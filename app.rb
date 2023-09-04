@@ -42,7 +42,36 @@ class App
     @peoples << teacher
   end
 
+  def create_person
+    puts 'Do you want to create a student (1) or teacher (2)? [Input number]:'
+    type = gets.chomp.to_i
+    if type == 1
+      puts 'Enter person age:'
+      age = gets.chomp.to_i
+      puts 'Enter person name:'
+      name = gets.chomp
+      puts 'Has parent permission? [Yes/No]'
+      has_parent_permission = gets.chomp
+      create_student(age, has_parent_permission, name)
+
+    elsif type == 2
+      puts 'Enter person age:'
+      age = gets.chomp.to_i
+      puts 'Enter person name:'
+      name = gets.chomp
+      puts 'Enter specialization'
+      specialization = gets.chomp
+      create_teacher(age, specialization, name)
+    else
+      puts 'Invalid input'
+    end
+  end
+
   def create_book(title, author)
+    puts 'Enter book title:'
+    title = gets.chomp
+    puts 'Enter book author:'
+    author = gets.chomp
     book = Book.new(title, author)
     @books << book
   end
