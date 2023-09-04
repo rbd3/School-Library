@@ -67,11 +67,15 @@ class App
     end
   end
 
-  def create_book(title, author)
+  def create_book_with_input
     puts 'Enter book title:'
     title = gets.chomp
     puts 'Enter book author:'
     author = gets.chomp
+    create_book(title, author)
+  end  
+
+  def create_book(title, author)
     book = Book.new(title, author)
     @books << book
   end

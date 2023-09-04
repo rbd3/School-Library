@@ -46,7 +46,7 @@ def main
       1 => -> { app.list_books },
       2 => -> { app.list_people },
       3 => -> { app.create_person },
-      4 => -> { app.create_book },
+      4 => -> { app.create_book_with_input },
       5 => -> { app.create_rental },
       6 => -> { app.list_rentals },
       7 => -> { exit }
