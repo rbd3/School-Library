@@ -85,6 +85,39 @@ class App
     @rentals << rental
   end
 
+  def create_rental_input
+    puts 'Enter rental date:'
+    date = gets.chomp
+    list_books
+    puts 'Enter book number:'
+    book = gets.chomp.to_i
+    list_people
+    puts 'Enter person number:'
+    person = gets.chomp.to_i
+    create_rental(date, books[book - 1], peoples[person - 1])
+  end
+  def list_rentals(person_id)
+    person = @peoples.find { |p| p.id == person_id }
+    if person.nil?
+      puts "Person with ID #{person_id} not found."
+    else
+      puts "Name: #{person.name}"
+      if person.rentals.empty?
+        puts 'Has no rentals'
+      else
+        person.rentals.each do |rental|
+          puts "Date: #{rental.date}, Book: #{rental.books.title} by #{rental.books.author}"
+        end
+      end
+    end
+  end
+  def list_rentals_input
+    list_people
+    puts 'Enter person id:'
+    id = gets.chomp.to_i
+    list_rentals(id)
+  end
+
   def list_rentals(person_id)
     person = @peoples.find { |p| p.id == person_id }
     if person.nil?
