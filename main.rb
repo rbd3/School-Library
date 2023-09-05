@@ -5,58 +5,6 @@ require_relative 'rental'
 require_relative 'book'
 
 class Main
-  def create_person(app)
-    puts 'Do you want to create a student (1) or teacher (2)? [Input number]:'
-    type = gets.chomp.to_i
-    if type == 1
-      puts 'Enter person age:'
-      age = gets.chomp.to_i
-      puts 'Enter person name:'
-      name = gets.chomp
-      puts 'Has parent permission? [Yes/No]'
-      has_parent_permission = gets.chomp
-      app.create_student(age, has_parent_permission, name)
-
-    elsif type == 2
-      puts 'Enter person age:'
-      age = gets.chomp.to_i
-      puts 'Enter person name:'
-      name = gets.chomp
-      puts 'Enter specialization'
-      specialization = gets.chomp
-      app.create_teacher(age, specialization, name)
-    else
-      puts 'Invalid input'
-    end
-  end
-
-  def create_book(app)
-    puts 'Enter book title:'
-    title = gets.chomp
-    puts 'Enter book author:'
-    author = gets.chomp
-    app.create_book(title, author)
-  end
-
-  def create_rental(app)
-    puts 'Enter rental date:'
-    date = gets.chomp
-    app.list_books
-    puts 'Enter book number:'
-    book = gets.chomp.to_i
-    app.list_people
-    puts 'Enter person number:'
-    person = gets.chomp.to_i
-    app.create_rental(date, app.books[book - 1], app.peoples[person - 1])
-  end
-
-  def list_rentals(app)
-    app.list_people
-    puts 'Enter person id:'
-    id = gets.chomp.to_i
-    app.list_rentals(id)
-  end
-
   def list_options
     puts 'Enter number to pick an option:'
     puts '1. List all books'
@@ -78,10 +26,10 @@ def main
     options = {
       1 => -> { app.list_books },
       2 => -> { app.list_people },
-      3 => -> { main_instance.create_person(app) },
-      4 => -> { main_instance.create_book(app) },
-      5 => -> { main_instance.create_rental(app) },
-      6 => -> { main_instance.list_rentals(app) },
+      3 => -> { app.create_person },
+      4 => -> { app.create_book_with_input },
+      5 => -> { app.create_rental_input },
+      6 => -> { app.list_rentals_input },
       7 => -> { exit }
     }
     if options.key?(option)
