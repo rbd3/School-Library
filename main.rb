@@ -5,24 +5,6 @@ require_relative 'rental'
 require_relative 'book'
 
 class Main
-  def create_rental(app)
-    puts 'Enter rental date:'
-    date = gets.chomp
-    app.list_books
-    puts 'Enter book number:'
-    book = gets.chomp.to_i
-    app.list_people
-    puts 'Enter person number:'
-    person = gets.chomp.to_i
-    app.create_rental(date, app.books[book - 1], app.peoples[person - 1])
-  end
-
-  def list_rentals(app)
-    app.list_people
-    puts 'Enter person id:'
-    id = gets.chomp.to_i
-    app.list_rentals(id)
-  end
 
   def list_options
     puts 'Enter number to pick an option:'
