@@ -96,6 +96,7 @@ class App
     person = gets.chomp.to_i
     create_rental(date, books[book - 1], peoples[person - 1])
   end
+  
   def list_rentals(person_id)
     person = @peoples.find { |p| p.id == person_id }
     if person.nil?
@@ -111,6 +112,7 @@ class App
       end
     end
   end
+
   def list_rentals_input
     list_people
     puts 'Enter person id:'
