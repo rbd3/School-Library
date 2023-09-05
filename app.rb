@@ -73,7 +73,7 @@ class App
     puts 'Enter book author:'
     author = gets.chomp
     create_book(title, author)
-  end  
+  end
 
   def create_book(title, author)
     book = Book.new(title, author)
@@ -95,22 +95,6 @@ class App
     puts 'Enter person number:'
     person = gets.chomp.to_i
     create_rental(date, books[book - 1], peoples[person - 1])
-  end
-  
-  def list_rentals(person_id)
-    person = @peoples.find { |p| p.id == person_id }
-    if person.nil?
-      puts "Person with ID #{person_id} not found."
-    else
-      puts "Name: #{person.name}"
-      if person.rentals.empty?
-        puts 'Has no rentals'
-      else
-        person.rentals.each do |rental|
-          puts "Date: #{rental.date}, Book: #{rental.books.title} by #{rental.books.author}"
-        end
-      end
-    end
   end
 
   def list_rentals_input

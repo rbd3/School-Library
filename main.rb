@@ -5,7 +5,6 @@ require_relative 'rental'
 require_relative 'book'
 
 class Main
-
   def list_options
     puts 'Enter number to pick an option:'
     puts '1. List all books'
@@ -29,8 +28,8 @@ def main
       2 => -> { app.list_people },
       3 => -> { app.create_person },
       4 => -> { app.create_book_with_input },
-      5 => -> { app.create_rental },
-      6 => -> { app.list_rentals },
+      5 => -> { app.create_rental_input },
+      6 => -> { app.list_rentals_input },
       7 => -> { exit }
     }
     if options.key?(option)
