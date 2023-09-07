@@ -123,6 +123,7 @@ class App
     @rentals << rental
     save_data('rentals.json', @rentals)
   end
+
   def create_rental_input
     puts 'Enter rental date:'
     date = gets.chomp
@@ -133,34 +134,45 @@ class App
     puts 'Enter person number:'
     person = gets.chomp.to_i
     create_rental(date, books[book - 1], peoples[person - 1])
-    File.open('rentals.json', 'w') do |file|
-      file.write(JSON.generate(rentals))
-      end
+    File.write('rentals.json', JSON.generate(rentals))
   end
+
   def list_rentals_input
     list_people
     puts 'Enter person id:'
     id = gets.chomp.to_i
     list_rentals(id)
   end
+
   def list_rentals(person_id)
-    person = @peoples.find { |p| p["id"] == person_id }
+    person = find_person(person_id)
     if person.nil?
       puts "Person with ID #{person_id} not found."
     else
-      puts "Name: #{person["name"]}"
-      if File.exist?('rentals.json')
-        rental_data = JSON.parse(File.read('rentals.json'))
-        if rental_data.empty?
-          puts 'There are no rentals yet!'
-        else
-          rental_data.each_with_index do |rental, i|
-            puts "Date: #{rental["date"]}, Book: #{rental["books"]["title"]} by #{rental["books"]["author"]}"
-          end
-        end
-      else
-        puts 'The rentals file does not exist.'
-      end
+      display_rentals(person)
     end
+  end
+
+  def find_person(person_id)
+    @peoples.find { |p| p['id'] == person_id }
+  end
+
+  def display_rentals(_person)
+    if File.exist?('rentals.json')
+      rental_data = JSON.parse(File.read('rentals.json'))
+      if rental_data.empty?
+        puts 'There are no rentals yet!'
+      else
+        rental_data.each_with_index do |rental, _i|
+          display_rental_info(rental)
+        end
+      end
+    else
+      puts 'The rentals file does not exist.'
+    end
+  end
+
+  def display_rental_info(rental)
+    puts "Date: #{rental['date']}, Book: #{rental['books']['title']} by #{rental['books']['author']}"
   end
 end
