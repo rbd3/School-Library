@@ -108,6 +108,12 @@ To run tests, run the following command:
 - Twitter: [@Narson321](https://twitter.com/@Narson321)
 - LinkedIn: [@Andry Narson Rabedesana](https://linkedin.com/in/andry-rabedesana)
 
+👤 **Abdul Wahab Hussain**
+
+> - GitHub: [Abdulwhbhussain](https://github.com/Abdulwhbhussain)
+> - LinkedIn: [Abdulwhbhussain](https://www.linkedin.com/in/abdulwhbhussain)
+> - Twitter: [Abdulwhbhussain](https://twitter.com/AbdulWhbHussain)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
