@@ -1,4 +1,5 @@
 require_relative 'person'
+require 'json'
 
 class Student < Person
   attr_accessor :name
@@ -15,5 +16,14 @@ class Student < Person
   def classroom=(classroom)
     @classroom = classroom
     classroom.students.push(self) unless classroom.students.include?(self)
+  end
+
+  def to_json(option = {})
+    {
+      id: @id,
+      age: @age,
+      parent_permission: @parent_permission,
+      name: @name
+    }.to_json(option)
   end
 end
