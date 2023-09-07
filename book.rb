@@ -11,7 +11,7 @@ class Book
 
   def add_rental(rental)
     @rentals << rental
-    rental.books = self
+    # rental.books = self
   end
 
   def to_json(option = {})
