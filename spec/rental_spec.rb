@@ -7,7 +7,6 @@ describe Rental do
   let(:book) { double('Book') }
   let(:person) { double('Person') }
 
-  # Create a sample rental instance for testing
   let(:rental) { Rental.new(date, book, person) }
 
   describe '#initialize' do
