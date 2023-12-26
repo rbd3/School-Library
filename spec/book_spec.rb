@@ -1,7 +1,5 @@
 require 'json'
 require 'rspec'
-
-# Load the Book class from your code
 require './book'
 
 describe Book do
