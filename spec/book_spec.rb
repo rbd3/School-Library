@@ -3,7 +3,6 @@ require 'rspec'
 require './book'
 
 describe Book do
-  # Create a sample book instance for testing
   let(:book) { Book.new('Title-1', 'Author-1') }
 
   describe '#initialize' do
