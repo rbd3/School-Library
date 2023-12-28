@@ -1,7 +1,6 @@
 require 'json'
 require 'rspec'
 
-# Load the Person class from your code
 require './person'
 
 describe Person do
