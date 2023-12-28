@@ -1,7 +1,6 @@
 require 'json'
 require 'rspec'
 
-# Load the Student class from your code
 require './student'
 
 describe Student do
