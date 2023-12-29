@@ -4,7 +4,6 @@ require 'rspec'
 require './student'
 
 describe Student do
-  # Create a sample student instance for testing
   let(:student) { Student.new(20, parent_permission: false, name: 'Mario') }
 
   describe '#initialize' do
