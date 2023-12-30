@@ -3,7 +3,6 @@ require 'rspec'
 require './teacher'
 
 describe Teacher do
-  # Create a sample student instance for testing
   let(:teacher) { Teacher.new(20, 'Math', name: 'Mario') }
 
   describe '#initialize' do
