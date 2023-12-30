@@ -10,7 +10,6 @@ class NameableDouble
 end
 
 describe TrimmerDecorator do
-  # Create a sample NameableDouble instance for testing
   let(:nameable_double) { NameableDouble.new }
 
   describe '#correct_name' do
